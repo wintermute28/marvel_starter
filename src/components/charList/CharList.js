@@ -116,8 +116,8 @@ const CharList = (props) => {
     )
 }
 
-CharList.propTypes = {
-    onCharSelected: PropTypes.func.isRequired
-}
+// CharList.propTypes = {
+//     onCharSelected: PropTypes.func.isRequired
+// }
 
 export default CharList;
