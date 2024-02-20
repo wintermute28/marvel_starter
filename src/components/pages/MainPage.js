@@ -12,7 +12,7 @@ const MainPage = () => {
 
     const [selectedChar, setChar] = useState(null);
 
-    const onChaeSelected = (id) => {
+    const onCharSelected = (id) => {
         setChar(id);
     }
 
@@ -23,7 +23,7 @@ const MainPage = () => {
         </ErrorBoundary>
         <div className="char__content">
             <ErrorBoundary>
-                <CharList onChaeSelected={onChaeSelected}/>
+                <CharList onCharSelected={onCharSelected}/>
             </ErrorBoundary>
             <ErrorBoundary>
                 <CharInfo charId={selectedChar}/>
