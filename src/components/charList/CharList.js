@@ -40,6 +40,26 @@ const CharList = (props) => {
         setOffset(offset => offset + 9);
         setCharEnded(charEnded => ended);
     }
+    // The characters appear one after the other
+    // const onCharListLoaded = (newCharList) => {
+    //     let ended = false;
+    //     if (newCharList.length < 9) {
+    //         ended = true;
+    //     }
+ 
+    //     const addChar = (index) => {
+    //         if (index < newCharList.length) {
+    //             setCharList(charList => [...charList, newCharList[index]]);
+    //             setTimeout(() => addChar(index + 1), 1000);
+    //         } else {
+    //             setNewItemLoading(false);
+    //             setOffset(offset => offset + newCharList.length);
+    //             setCharEnded(ended);
+    //         }
+    //     };
+    
+    //     addChar(0);
+    // }
 
     const itemRefs = useRef([]);
 
