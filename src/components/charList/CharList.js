@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 // import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
@@ -70,7 +70,7 @@ const CharList = (props) => {
     //     const addChar = (index) => {
     //         if (index < newCharList.length) {
     //             setCharList(charList => [...charList, newCharList[index]]);
-    //             setTimeout(() => addChar(index + 1), 1000);
+    //             setTimeout(() => addChar(index + 1), 100);
     //         } else {
     //             setNewItemLoading(false);
     //             setOffset(offset => offset + newCharList.length);
@@ -80,6 +80,9 @@ const CharList = (props) => {
     
     //     addChar(0);
     // }
+
+
+
 
     const itemRefs = useRef([]);
 
@@ -129,9 +132,13 @@ const CharList = (props) => {
         )
     }
 
+    const elements = useMemo(() => {
+        return setContent(processApp, () => renderItems(charList), newItemLoading);
+    }, [processApp])
+
     return (
         <div className="char__list">
-            {setContent(processApp, () => renderItems(charList), newItemLoading)}
+            {elements}
             <button className="button button__main button__long"
                     disabled={newItemLoading}
                     style={{'display': charEnded ? 'none' : 'block'}}
